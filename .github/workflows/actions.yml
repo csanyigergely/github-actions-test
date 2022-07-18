@@ -1,42 +1,62 @@
-name: Actions Workflow
-on:
-#  schedule:
-#    - cron: "0/5 * * * *"
-#    - cron: "0/6 * * * *"
-#  push: []
-  repository_dispatch:
-    types: [build]
-  pull_request:
-    types:
-      - closed
-      - assigned
-      - reopened
-      - opened
-
-jobs:
-  run-github-actions:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: list files
-        run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{github.token}}"
-      #          git clone git.github:$GITHUB_REPOSITORY
-      #          git checkout $GITHUB_SHA
-      - name: checkout
-        uses: actions/checkout@v1
-      - name: list files after checkout
-        run: |
-          pwd
-          ls -a
-      - name: Simple JavaScript action
-        id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: Pista
-      - name: log greeting time
-        run: echo "${{ steps.greet.outputs.time }}"
+#name: Actions Workflow
+#on:
+##  schedule:
+##    - cron: "0/5 * * * *"
+##    - cron: "0/6 * * * *"
+#  push:
+#    branches:
+#      - master
+#      - 'feature/*' # matches feature/any string nem lehet / utána
+#      - 'feature/**'
+#      - '!feature/featC'
+#    tags:
+#      - v1.*
+#    paths:
+#      - "**.js"
+#      - '!filename.js'
+##    paths-ignore:
+##      - 'docs/**'
+#
+#
+#
+#
+#
+#
+##  repository_dispatch:
+##    types: [build]
+##  pull_request:
+##    branches:
+##      - master
+##    types:
+##      - closed
+##      - assigned
+##      - reopened
+##      - opened
+#
+#jobs:
+#  run-github-actions:
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - name: list files
+#        run: |
+#          pwd
+#          ls -a
+#          echo $GITHUB_SHA
+#          echo $GITHUB_REPOSITORY
+#          echo $GITHUB_WORKSPACE
+#          echo "${{github.token}}"
+#      #          git clone git.github:$GITHUB_REPOSITORY
+#      #          git checkout $GITHUB_SHA
+#      - name: checkout
+#        uses: actions/checkout@v1
+#      - name: list files after checkout
+#        run: |
+#          pwd
+#          ls -a
+#      - name: Simple JavaScript action
+#        id: greet
+#        uses: actions/hello-world-javascript-action@v1
+#        with:
+#          who-to-greet: Pista
+#      - name: log greeting time
+#        run: echo "${{ steps.greet.outputs.time }}"

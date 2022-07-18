@@ -1,27 +1,27 @@
-name: SHELL COMMANDS
-
-on: [ pull_request ]
-jobs:
-  run-shell-command:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: echo a string
-        run: echo "Hello World!"
-      - name: multiline script
-        run: |
-          node -v
-          npm -v
-      - name: Python command
-        run: |
-          import platform
-          print(platform.processor())
-        shell: python
-  run-windows-commands:
-    runs-on: windows-latest
-    needs: [ run-shell-command ]
-    steps:
-      - name: directory powershell
-        run: Get-Location
-      - name: directory bash
-        run: pwd
-        shell: bash
+#name: SHELL COMMANDS
+#
+#on: [ pull_request ]
+#jobs:
+#  run-shell-command:
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - name: echo a string
+#        run: echo "Hello World!"
+#      - name: multiline script
+#        run: |
+#          node -v
+#          npm -v
+#      - name: Python command
+#        run: |
+#          import platform
+#          print(platform.processor())
+#        shell: python
+#  run-windows-commands:
+#    runs-on: windows-latest
+#    needs: [ run-shell-command ]
+#    steps:
+#      - name: directory powershell
+#        run: Get-Location
+#      - name: directory bash
+#        run: pwd
+#        shell: bash
