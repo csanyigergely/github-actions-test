@@ -11,3 +11,9 @@ jobs:
         run: |
           node -v
           cat /etc/os-release
+      - uses: actions/checkout@v1
+      - name: Run a script
+        uses: docker://node:14-alpine3.16
+        with:
+          entrypoint: ./script.sh
+          args: "some string"
