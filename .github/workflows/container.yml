@@ -1,18 +1,23 @@
-name: Docker
-
-on: push
-
-jobs:
-  node-docker:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Log node version
-        run: |
-          node -v
-          cat /etc/os-release
-      - uses: actions/checkout@v1
-      - name: Run a script
-        uses: docker://node:14-alpine3.16
-        with:
-          entrypoint: ./script.sh
-          args: "some string"
+#name: Docker
+#
+#on: push
+#
+#jobs:
+#  node-docker:
+#    runs-on: ubuntu-20.04
+#    steps:
+#      - name: Log node version
+#        run: |
+#          node -v
+#          cat /etc/os-release
+##      - uses: actions/checkout@v1
+##      - name: Run a script
+##        uses: docker://node:14-alpine3.16
+##        with:
+##          entrypoint: ./script.sh
+##          args: "some string"
+#      - name: slack message
+#        uses: docker://technosophos/slack-notify
+#        env:
+#          SLACK_WEBHOOK:
+#          SLACK MESSAGE: "Hello alma"
